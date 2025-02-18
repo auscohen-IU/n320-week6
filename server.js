@@ -59,27 +59,3 @@ if (req.url === '/') {
             res.end(data);
         }
     });
-
-
-// Serve a media file
-const extname = path.extname(req.url);
-let contentType = 'text/html';
-
-if (extname === '.jpg' || extname === '.jpeg') {
-    contentType = 'image/jpeg';
-} else if (extname === '.pdf') {
-    contentType = 'text/pdf';
-} else if (extname === '.mp4') {
-    contentType = 'video/mp4';
-}
-
-fs.readFile(path.join(__dirname, req.url), (err, data) => {
-    if (err) {
-        res.writeHead(500);
-        res.end('Error loading media');
-    } else {
-        res.writeHead(200, {'Content-Type': contentType});
-        res.end(data);
-    }
-});
-
