@@ -1,5 +1,3 @@
-function changeTime() {
-    const time = new Date().toLocaleTimeString;
-    document.getElementById("timeDisplay").innerHTML = time;
-};
-
+function buttonPushed(){
+    document.getElementById("pressedButton").innerHTML = "I pushed the button!";
+}
